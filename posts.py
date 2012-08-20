@@ -1,17 +1,19 @@
 from pymongo import Connection
 from datetime import datetime
+import repobase
 
-class PostRepo:
+class PostRepo(repobase.RepoBase):
 	"post repository mongodb"
-	def __init__(self):
-		self.connection = Connection("mongodb://andy:at030884@dbh36.mongolab.com:27367/myblog")
-		self.db = self.connection["myblog"]
 	def insert(self, title, blog, tags):
 		posts = self.db.posts
+		if tags == '':
+			tags = []
+		else:
+			tags = tags.split(" ")
 		post = { 
 			"title":title,
 			"blog" : blog,
-			"tags" : tags.split(" "),
+			"tags" : tags,
 			"added" : datetime.utcnow()
 		}
 		return posts.insert(post)
