@@ -23,3 +23,12 @@ li.tag{
 	display: inline;
 	padding:3px;
 }
+
+/* FORM ELEMENTS */
+.full{
+	width:100%;
+	height:120px;
+}
+.large{
+	width:300px;
+}

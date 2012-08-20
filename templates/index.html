@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
 
-	{% for p in posts %}
+	{% for p in viewmodel.posts %}
 		<div class="post">
 			<h2>{{ p.title }}</h2>
 			<p class="blog">{{ p.blog }}</p>
@@ -16,4 +16,11 @@
 		</div>
 	{% endfor %}
 
+{% endblock %}
+
+{% block sidebar %}
+	<h2>Tags</h2>
+	{% for tag in viewmodel.tagcloud %}
+		<span class="label">{{ tag._id }}</span>
+	{% endfor %}
 {% endblock %}

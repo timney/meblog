@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import flask_login, validator
+import flask_login, validator, tags
 from user import User
 from posts import PostRepo
 app = Flask(__name__)
@@ -14,7 +14,9 @@ def load_user(userid):
 def index():
 	posts = PostRepo()
 	allPosts =posts.getAll()
-	return render_template('index.html', posts = allPosts)
+	tagsCloud = tags.Tags()
+	cloud = tagsCloud.Cloud()
+	return render_template('index.html', viewmodel = { "posts" : allPosts, "tagcloud": cloud })
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

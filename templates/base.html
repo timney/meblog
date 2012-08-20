@@ -8,7 +8,7 @@
 	<div class="navbar navbar-fixed-top">
 	  <div class="navbar-inner">
 	    <div class="container">
-	      <a class="brand" href="#">
+	      <a class="brand" href="/">
 			Blog bitches
 		  </a>
 		  <ul class="nav">
@@ -18,11 +18,14 @@
 	    </div>
 	  </div>
 	</div>
-	<div class="container">
-		<div class="main span8">
-		{% block body %}{% endblock %}
-		</div>
-		<div class="sidebar span4">
+	<div class="container row">
+		<div class="row">
+			<div class="main span8">
+				{% block body %}{% endblock %}
+			</div>
+			<div class="sidebar span4">
+				{% block sidebar %}{% endblock %}
+			</div>
 		</div>
 	</div>
 </body>
