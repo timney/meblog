@@ -1,9 +1,29 @@
 <!DOCTYPE Html>
 <html>
 <head>
-	<link href="/static/style.css" rel="stylesheet" type="text/css">
+	<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	{% block body %}{% endblock %}
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="brand" href="#">
+			Blog bitches
+		  </a>
+		  <ul class="nav">
+		  	<li><a href="#">Projects</a></li>
+		  	<li><a href="#">About</a></li>
+		  </ul>
+	    </div>
+	  </div>
+	</div>
+	<div class="container">
+		<div class="main span8">
+		{% block body %}{% endblock %}
+		</div>
+		<div class="sidebar span4">
+		</div>
+	</div>
 </body>
 </html>

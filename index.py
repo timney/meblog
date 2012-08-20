@@ -41,9 +41,9 @@ def edit():
 				)
 			return redirect(url_for('index'))
 		else:
-			return render_template('edit.html', errors = {"man":"ssd"})
+			return render_template('edit.html', errors = valid.errors)
 	else:
-		return render_template('edit.html', errors = {"Sd":"sd"})
+		return render_template('edit.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
