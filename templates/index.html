@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+
+	<h1>Blog</h1>
+	{% for p in posts %}
+		<div class="post">
+			<h2>{{ p.title }}</h2>
+			<p>{{ p.blog }}</p>
+			{% for t in p.tags %}
+				<span class="tag">{{ t }}</span>
+			{% endfor %}
+			<br />
+			<span class="date">{{ p.added.strftime("%H:%M") }}</span>
+		</div>
+	{% endfor %}
+
+{% endblock %}

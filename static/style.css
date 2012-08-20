@@ -1,0 +1,18 @@
+body{
+	padding:0 auto;
+	margin:0 auto;
+}
+
+.post{
+	padding:5px;
+	border-top:2px solid grey;
+}
+h2{
+	padding:0px;
+	margin:0px;
+}
+
+.tag{
+	padding:3px;
+	background: red;
+}
