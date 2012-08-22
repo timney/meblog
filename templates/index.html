@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block body %}
 
-	{% for p in viewmodel.posts %}
-		<div class="post">
-			<h2>{{ p.title }}</h2>
-			<p class="blog">{{ p.blog }}</p>
-			{% if p.tags %}
-				<ul class="tags">
-				{% for t in p.tags %}
-					<li class="tag label">{{ t }}</li>
-				{% endfor %}
-				</ul>
-			{% endif %}
-			<div class="time">{{ p.added.strftime("%H:%M") }}</div>
-		</div>
-	{% endfor %}
+	{% if viewmodel.posts %}
+		{% for p in viewmodel.posts %}
+			<div class="post">
+				<h2>{{ p.title }}</h2>
+				<p class="blog">{{ p.toHtml()|safe() }}</p>
+				{% if p.tags %}
+					<ul class="tags">
+					{% for t in p.tags %}
+						<li class="tag label">{{ t }}</li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+				<div class="time">{{ p.added.strftime("%H:%M") }}</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h1>Damn no posts man</h1>
+	{% endif %}
 
 {% endblock %}
 

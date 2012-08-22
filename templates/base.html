@@ -5,20 +5,21 @@
 	<link href="/static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="navbar navbar-fixed-top">
-	  <div class="navbar-inner">
-	    <div class="container">
-	      <a class="brand" href="/">
-			Blog bitches
-		  </a>
-		  <ul class="nav">
-		  	<li><a href="#">Projects</a></li>
-		  	<li><a href="#">About</a></li>
-		  </ul>
-	    </div>
-	  </div>
-	</div>
 	<div class="container row">
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+		      <a class="brand" href="/">
+				Blog bitches
+			  </a>
+			  <ul class="nav">
+			  	<li><a href="#">Projects</a></li>
+			  	<li><a href="#">About</a></li>
+			  </ul>
+		    </div>
+		  </div>
+		</div>
+
 		<div class="row">
 			<div class="main span8">
 				{% block body %}{% endblock %}

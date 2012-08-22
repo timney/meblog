@@ -18,8 +18,9 @@ class PostRepo(repobase.RepoBase):
 			"added" : datetime.utcnow(),
 			"archive" : postToAdd["archive"]
 		}
-		if postToAdd["_id"] is not None or len(postToAdd["_id"]) > 0:
-			post["_id"] = postToAdd["_id"]
+		if "_id" in postToAdd:
+			if postToAdd["_id"] is not None or len(postToAdd["_id"]) > 0:
+				post["_id"] = postToAdd["_id"]
 		posts.insert(post)
 
 	def getById(self, id):
@@ -37,15 +38,15 @@ class PostRepo(repobase.RepoBase):
 	def update(self, postToUpdate):
 		posts = self.db.posts
 		post = { 
-			"_id" : postToUpdate["_id"],
+			"_id" : postToUpdate["_id"] ,
 			"title": postToUpdate["title"],
 			"content" : postToUpdate["content"],
 			"tags" : postToUpdate["tags"],
 			"added" : postToUpdate["added"],
 			"archive" : postToUpdate["archive"]
 		}
-		posts.update({ "_id" }, post)
+		posts.update({ "_id": postToUpdate["_id"] }, post)
 
 	def _delete(self, id):
 		post = self.db.posts
-		post.remove(id)
+		post.remove(id) 

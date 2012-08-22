@@ -6,14 +6,18 @@
 		Title
 	</label>
 	<input type="text" name="title" id="title" class="large" /><br />
-	<label for="blog">
-		Blog
+	<label for="content">
+		Content
 	</label>
-	<textarea col="3" row="50" id="blog" name="blog" class="full"></textarea><br />
+	<textarea col="3" row="50" id="content" name="content" class="full"></textarea><br />
 	<label for="tags">
 		Tags
 	</label>
 	<input type="text" name="tags" id="tags" class="large" /><br />
+	<label for="archive">
+		Archive
+	<label>
+	<input type="checkbox" id="archive" name="archive" value="archive" /><br />
 	<input type="submit" class="btn btn-primary" />
 
 	{% if errors %}

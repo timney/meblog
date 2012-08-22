@@ -12,8 +12,8 @@ def load_user(userid):
 
 @app.route('/')
 def index():
-	posts = PostRepo()
-	allPosts =posts.getAll()
+	postrepo = PostRepo()
+	allPosts =postrepo.getAll()
 	tagsCloud = tags.Tags()
 	cloud = tagsCloud.Cloud()
 	return render_template('index.html', viewmodel = { "posts" : allPosts, "tagcloud": cloud })
@@ -36,11 +36,12 @@ def edit():
 		valid = validator.Validator()
 		if valid.isValidPost(request) == True:
 			posts = PostRepo()
-			posts.insert(
-				request.form["title"],
-				request.form["blog"], 
-				request.form["tags"],
-				)
+			posts.insert({
+				"title": request.form["title"],
+				"content": request.form["content"], 
+				"tags": request.form["tags"],
+				"archive": False
+				})
 			return redirect(url_for('index'))
 		else:
 			return render_template('edit.html', errors = valid.errors)
