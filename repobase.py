@@ -1,7 +1,9 @@
 from pymongo import Connection
+import config
 
 class RepoBase:
 	"Base class for accessing pymongdb"
-	connection = Connection("mongodb://andy:at030884@dbh36.mongolab.com:27367/myblog")
+	config = config.Configuration()
+	connection = Connection(config.getConnectionString())
 	db = connection["myblog"]
 	
