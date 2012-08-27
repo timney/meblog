@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="post">
+	<h2>{{ post.title }}</h2>
+	<p class="blog">{{ post.toHtml()|safe() }}</p>
+	{% if post.tags %}
+		<ul class="tags">
+		{% for t in post.tags %}
+			<li class="tag label">{{ t }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	<div class="time">{{ post.added.strftime("%H:%M") }}</div>
+</div>
+
+{% endblock %}
