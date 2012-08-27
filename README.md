@@ -1,4 +1,4 @@
 meblog
 ======
 
-Blog using flask, mongopy and twitter bootstrap
+Blog using flask, pymongo and twitter bootstrap
