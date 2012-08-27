@@ -1,17 +1,11 @@
 $(function(){
 	
-	$('#content').val($('#contentValue').val())
+	$('#wmd-input').val($('#contentValue').val())
 
-	$('.previewContent').click(function(){
-		$.post('/mdtohtml', { data: $('#content').val() },
-		  function(data){
-		  	$('.modal-body').html(data.result);
-		  	$('#markdownPreview').modal('show');
-		  });
-	});
-
-	$('a.closeDialog').click(function(){
-		$('#markdownPreview').modal('hide')
-	});
+	(function(){
+		var converter = new Markdown.Converter();
+		var editor = new Markdown.Editor(converter);
+		editor.run();
+	})()
 
 })

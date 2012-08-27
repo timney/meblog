@@ -28,10 +28,12 @@
 		{% if 'content' in viewmodel.submittedValues %}
 			<input type="hidden" id="contentValue" value="{{ viewmodel.submittedValues['content'] }}" />
 		{% endif %}
-		<textarea col="3" row="50" id="content" name="content" class="input-xxlarge full"></textarea>
-		<br />
-		<a class="previewContent" href="#">Preview</a>
-		<span class="help-block">(Accepts markdown)</span>
+
+		<div class="wmd-panel">
+			<div id="wmd-button-bar"></div>
+			<textarea col="3" row="50" id="wmd-input" name="content" class="input-xxlarge full wmd-input"></textarea>
+			<div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+		</div>
 	</div>
 	<label for="tags">
 		Tags
