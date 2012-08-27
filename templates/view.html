@@ -11,7 +11,7 @@
 		{% endfor %}
 		</ul>
 	{% endif %}
-	<div class="time">{{ post.added.strftime("%H:%M") }}</div>
+	<div class="time">Posted <span class="datetime">{{ post.added.strftime("%a %d/%m/%y %H:%M") }}</span></div>
 </div>
 
 {% endblock %}

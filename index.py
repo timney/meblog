@@ -15,7 +15,11 @@ def index():
 	postrepo = PostRepo()
 	allPosts =postrepo.getAll()
 	tagsCloud = tags.Tags()
-	return render_template('index.html', viewmodel = { "posts" : allPosts, "tagcloud": tagsCloud.Cloud() })
+	return render_template('index.html', 
+		viewmodel = { 
+			"posts" : allPosts, 
+			"tagcloud": tagsCloud.Cloud() 
+		})
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

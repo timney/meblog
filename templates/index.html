@@ -13,7 +13,7 @@
 					{% endfor %}
 					</ul>
 				{% endif %}
-				<div class="time">{{ p.added.strftime("%a %d/%m/%y %H:%M") }}</div>
+				<div class="time">Posted <span class="datetime">{{ p.added.strftime("%a %d/%m/%y %H:%M") }}</span></div>
 			</div>
 		{% endfor %}
 	{% else %}

@@ -9,3 +9,9 @@ class Configuration:
 
 	def getConnectionString(self):
 		return self.config.get('mongodb', 'connection')
+
+	def getUsername(self):
+		return self.config.get('credentials', 'user')
+
+	def getPassword(self):
+		return self.config.get('credentials', 'pass')

@@ -10,7 +10,7 @@ class PostRepo(repobase.RepoBase):
 		if postToAdd["tags"] == '':
 			postToAdd["tags"] = []
 		else:
-			postToAdd["tags"] = postToAdd["tags"].split(" ")
+			postToAdd["tags"] = postToAdd["tags"].strip().split(" ")
 		post = { 
 			"title": postToAdd["title"],
 			"content" : postToAdd["content"],
