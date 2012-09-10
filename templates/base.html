@@ -1,7 +1,7 @@
 <!DOCTYPE Html>
 <html>
 <head>
-	<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename = 'css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 	<link href="/static/css/style.css" rel="stylesheet" type="text/css">
 	<link href="/static/prettify/prettify.css" rel="stylesheet" type="text/css">
 </head>
@@ -9,20 +9,27 @@
 	<div class="container row">
 		<div class="navbar">
 		  <div class="navbar-inner">
-		    <div class="container">
 		      <a class="brand" href="/">
 				Andy Timney
 			  </a>
-			  <ul class="nav">
-			  	<li><a href="#">Projects</a></li>
-			  	<li><a href="#">About</a></li>
+			  <ul class="nav pull-right">
+			  	{% if current_user.is_authenticated() %}
+				  	<li><a href="#">{{ current_user.username }}</a></li>
+				  	<li><a href="{{ url_for('logout') }}" class="pull-right">Logout</a></li>
+				{% else %}
+					<li><a href="{{ url_for('login') }}" class="pull-right">Login</a></li>
+			  	{% endif %}
 			  </ul>
-		    </div>
-		  </div>
+		   </div>
 		</div>
 
 		<div class="row">
 			<div class="main span8">
+
+				{% for message in get_flashed_messages() %}
+				    <div class="alert alert-info">{{ message }}</div>
+				  {% endfor %}
+
 				{% block body %}{% endblock %}
 			</div>
 			<div class="sidebar span4">

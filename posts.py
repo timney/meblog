@@ -34,7 +34,21 @@ class PostRepo(repobase.RepoBase):
 	def getAll(self):
 		posts = self.db.posts
 		postsAr = []
-		for p in posts.find({ 'archive' : False}):
+		for p in posts.find({ 'archive' : False }):
+			postsAr.append(post.Post(p))
+		return postsAr
+
+	def getAllAndArchived(self):
+		posts = self.db.posts
+		postsAr = []
+		for p in posts.find():
+			postsAr.append(post.Post(p))
+		return postsAr
+
+	def getAllByTag(self, tag):
+		posts = self.db.posts
+		postsAr = []
+		for p in posts.find({ 'archive' : False, 'tags' : tag }):
 			postsAr.append(post.Post(p))
 		return postsAr
 

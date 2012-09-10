@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {% block body %}
 
+	{% if viewmodel.tagHeader %}
+	<h1 class="tagHeader">Tag: {{ viewmodel.tagHeader }}</h1>
+	{% endif %}
+
 	{% if viewmodel.posts %}
 		{% for p in viewmodel.posts %}
 			<div class="post">
 				<h2><a href="/post/{{ p._id }}">{{ p.title }}</a></h2>
-				<p class="blog">{{ p.toHtml()|safe() }}</p>
+				<div class="blog">{{ p.toHtml()|safe() }}</div>
 				{% if p.tags %}
 					<ul class="tags">
+						<li class="tag">Tagged:</li>
 					{% for t in p.tags %}
-						<li class="tag label">{{ t }}</li>
+						<li class="tag"><a href="{{ url_for('tag', tag = t) }}">{{ t }}</a></li>
 					{% endfor %}
 					</ul>
 				{% endif %}
@@ -17,19 +22,23 @@
 			</div>
 		{% endfor %}
 	{% else %}
-		<h1>Damn no posts man</h1>
+		<h1>There ain't no posts fool!</h1>
 	{% endif %}
 
 {% endblock %}
 
 {% block sidebar %}
-	<div class="well">
-		<a href="/edit" class="btn" >New post</a>
-	</div>
+	{% if current_user.is_authenticated() %}
+		<div class="well">
+			<a href="/edit" class="btn" >New post</a>	
+		</div>
+	{% endif %}
+
 	<div class="well">
 		<h2>Tags</h2>
 		{% for tag in viewmodel.tagcloud %}
-			<span class="label">{{ tag._id }}</span>
+			<a  href="{{ url_for('tag', tag = tag._id) }}" class="">{{ tag._id }}</a>
 		{% endfor %}
 	</div>
+
 {% endblock %}

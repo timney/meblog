@@ -10,8 +10,14 @@ class Configuration:
 	def getConnectionString(self):
 		return self.config.get('mongodb', 'connection')
 
+	def getId(self):
+		return self.config.get('credentials', 'id')
+		
 	def getUsername(self):
 		return self.config.get('credentials', 'user')
 
 	def getPassword(self):
 		return self.config.get('credentials', 'pass')
+
+	def getSecret(self):
+		return self.config.get('flask-login', 'secret')

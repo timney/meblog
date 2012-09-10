@@ -1,3 +1,15 @@
+from config import Configuration
+from flask.ext.login import UserMixin
+
+# class User(UserMixin):
+#     def __init__(self, name, id, active=True):
+#         self.name = name
+#         self.id = id
+#         self.active = active
+
+#     def is_active(self):
+#         return self.active
+
 class User:
 	"User class for login"
 	def __init__(self, username, password):
@@ -15,3 +27,6 @@ class User:
 		return False
 	def get_id(self):
 		return unicode(999)
+
+	def get():
+		return User("andy", None)

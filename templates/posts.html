@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+
+	{% if posts %}
+		{% for p in posts %}
+			<div class="post {% if p.archive %}alert alert-block{% endif %}">
+				<h2><a href="/edit/{{ p._id }}">{{ p.title }}</a></h2>
+				<div class="time">Posted <span class="datetime">{{ p.added.strftime("%a %d/%m/%y %H:%M") }}</span></div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h1>There ain't no posts fool!</h1>
+	{% endif %}
+
+{% endblock %}	
+
+{% block sidebar %}
+	{% if current_user.is_authenticated() %}
+		<div class="well">
+			<a href="/edit" class="btn" >New post</a>	
+		</div>
+	{% endif %}
+
+{% endblock %}

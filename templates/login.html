@@ -1,12 +1,15 @@
-<html>
-<body>
-<h1>Login</h1>
+{% extends "base.html" %}
+{% block body %}
+
 <form action="login" method="post">
+	<legend>Login</legend>
 	Username<br />
 	<input type="text" id="username" name="username"/><br />
 	Password<br />
 	<input type="password" id="password" name="password" /><br />
-	<input type="submit" />
+	<div class="form-actions">
+		<input type="submit" class="btn btn-primary" />
+	</div>
 </form>
-</body>
-</html>
+
+{% endblock %}

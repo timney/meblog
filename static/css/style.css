@@ -3,16 +3,21 @@ body{
 	margin:0 auto;
 }
 
+.navbar{
+    margin-top: 5px;
+}
 .post{
 	padding:0px 0px 10px 0px;
 	margin:0px 0px 20px 0px;
 	border-bottom: 1px solid #E6E6E6;
 }
 
-p.blog{
-	margin:10px 0px 10px 0px;
+div.blog{
+	margin:20px 0px 20px 0px;
 }
-
+h1.tagHeader{
+    margin-bottom: 10px;
+}
 ul.tags{
 	margin:0;
 	padding:0;
@@ -22,6 +27,12 @@ li.tag{
 	list-style: none;
 	display: inline;
 	padding:3px;
+    background:white;
+    color:#CCCCCC;
+}
+.time{
+    color:#CCCCCC;
+    font-size: 10px;
 }
 
 /* FORM ELEMENTS */
@@ -39,7 +50,7 @@ li.tag{
 
 .wmd-input 
 { 
-        height: 300px;
+        height: 250px;
         width: 100%;
         background-color: Gainsboro;
         border: 1px solid DarkGray;

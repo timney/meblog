@@ -45,12 +45,28 @@ class PostRepoTests(unittest.TestCase):
 		self.assertEqual("new content", updatedPostFound.content)
 		self.repo._delete(id)
 
-	def tesstObjectId(self):
+	def testObjectId(self):
 		postDict = { "title":"Test post", "content": "Content", "tags":"Tags", "added": "Added date", "archive":False} 
 		id = self.repo.insert(postDict)
 		postFound = self.repo.getById(id)
 		self.assertIsNotNone(postFound)
-		self.assertEqual(id+'l', postFound._id)
+		self.assertEqual(id, postFound._id)
+		self.repo._delete(id)
+
+	def testGetAllByTag(self):
+		postDict = {"title":"Test post", "content": "Content", "tags":"Tags", "added": "Added date", "archive":False} 
+		id = self.repo.insert(postDict)
+		postFound = self.repo.getById(id)
+
+		posts = self.repo.getAllByTag("Tags")
+
+		for i in posts:
+			print str(i)
+
+		self.assertIsNotNone(posts)
+		self.assertEqual(1, len(posts))
+		self.assertEqual(id, posts[0]._id)
+
 		self.repo._delete(id)
 
 if __name__ == '__main__':
