@@ -1,0 +1,4 @@
+Flask==0.9
+Flask_Login==2.7
+pymongo==2.2.1
+markdown==2.2.0
